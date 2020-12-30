@@ -59,7 +59,7 @@ function parseFile(cJson) {
             throw new Error(value.ip + " already exists. user " + ips[value.ip].user)
         }
         ips[value.ip] = {user};
-        secrets = secrets + user + '    l2tpserver   ' + value.password + '    ' + value.ip + '\n';
+        secrets = secrets + user + '    l2tpd   ' + value.password + '    ' + value.ip + '\n';
         routesUp = routesUp + ifRoutesUp(value);
 
         if (value.forwarding) {
