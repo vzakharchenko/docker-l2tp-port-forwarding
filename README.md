@@ -1,9 +1,9 @@
-# Docker image with PPTP server including routing and port forwarding
+# Docker image with L2TP server including routing and port forwarding
 
 ## Description
 Access private network from the internet, support port forwarding from private network to outside via cloud.
 
-[GitHub Project](https://github.com/vzakharchenko/docker-pptp-port-forwarding)
+[GitHub Project](https://github.com/vzakharchenko/docker-l2tp-port-forwarding)
 ## Installation :
 [create /opt/config.json](#configjson-structure)
 ```
@@ -65,7 +65,7 @@ Where
 ## Examples
 
 ### Connect to LAN from the  internet
-![](https://github.com/vzakharchenko/docker-pptp-port-forwarding/blob/main/img/pptpRouting.png?raw=true)
+![](https://github.com/vzakharchenko/docker-l2tp-port-forwarding/blob/main/img/l2tpRouting.png?raw=true)
 **user1** - router with subnet 192.168.88.0/24 behind NAT
 **user2** - user who has access to subnet 192.168.88.0/24 from the Internet
 ```
@@ -92,7 +92,7 @@ Where
 ```
 
 ### Port forwarding
-![](https://github.com/vzakharchenko/docker-pptp-port-forwarding/blob/main/img/pptpWithRouting.png?raw=true)
+![](https://github.com/vzakharchenko/docker-l2tp-port-forwarding/blob/main/img/l2tpWithRouting.png?raw=true)
 **user** - router with subnet 192.168.88.0/24 behind NAT.
 Subnet contains service http://192.168.8.254:80 which is available at from http://195.138.164.211:9000
 
@@ -115,7 +115,7 @@ Subnet contains service http://192.168.8.254:80 which is available at from http:
 }
 ```
 ### connect multiple networks
-![](https://github.com/vzakharchenko/docker-pptp-port-forwarding/blob/main/img/pptpWithRouting2.png?raw=true)
+![](https://github.com/vzakharchenko/docker-l2tp-port-forwarding/blob/main/img/l2tpWithRouting2.png?raw=true)
 **user1** - router with subnet 192.168.88.0/24 behind NAT. Subnet contains service http://192.168.88.254:80 which is available at from http://195.138.164.211:9000
 **user2** - router with subnet 192.168.89.0/24 behind NAT.
 **user3** - user who has access to subnets 192.168.88.0/24 and 192.168.89.0/24 from the Internet

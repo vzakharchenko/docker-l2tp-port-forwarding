@@ -7,6 +7,7 @@ iptables-restore < /etc/iptables/rules.v4
 # service pptpd restart
 # /opt/redir.sh
 sed -i '$ d' /opt/src/run.sh
+sed -i '/IPsec PSK:/d' /opt/src/run.sh
 sed -i '/Username:/d' /opt/src/run.sh
 sed -i '/Password:/d' /opt/src/run.sh
 /opt/src/run.sh
