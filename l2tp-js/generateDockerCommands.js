@@ -30,7 +30,7 @@ function parseFile(cJson) {
         }
     });
 
-    console.log('docker run -d --name=l2tp-port-forwarding -p 500:500/udp 4500:4500/udp  ' + redir +
+    console.log('docker run -d --name=l2tp-port-forwarding -p 500:500/udp -p 4500:4500/udp  ' + redir +
         `-v ${configPath}:/opt/config.json --privileged --restart=always l2tp-port-forwarding`)
 //        `-v ${configPath}:/opt/config.json --privileged --restart=always vassio/l2tp-port-forwarding:latest`)
 }
