@@ -3,6 +3,8 @@
 ## Description
 Access private network from the internet, support port forwarding from private network to outside via cloud.
 
+[The same solution with PPTP Server](https://github.com/vzakharchenko/docker-pptp-port-forwarding)
+
 [GitHub Project](https://github.com/vzakharchenko/docker-l2tp-port-forwarding)
 ## Installation :
 [create /opt/config.json](#configjson-structure)
