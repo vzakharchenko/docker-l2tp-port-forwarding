@@ -87,8 +87,10 @@ const f = fs.readFileSync(configPath, 'utf8');
 
 const configJson = JSON.parse(f);
 parseFile(configJson.users);
-const ipsec_secret = (configJson.ipsec && configJson.ipsec.secret)?
-    `echo '%any  %any  : PSK "${configJson.ipsec.secret}"' > /etc/ipsec.secrets`:
-    '\n';
-fs.writeFileSync(ipsecSecretPath, ipsec_secret);
+if (configJson.ipsec && configJson.ipsec.secret){
+    const ipsec_secret = `echo '%any  %any  : PSK "${configJson.ipsec.secret}"' > /etc/ipsec.secrets`;
+    fs.writeFileSync(ipsecSecretPath, ipsec_secret);
+} else {
+    throw new Error('ipsec secret is empty');
+}
 
