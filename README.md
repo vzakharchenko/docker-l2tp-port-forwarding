@@ -1,4 +1,4 @@
-# Docker image with L2TP server including routing and port forwarding
+# Docker image with L2TP with IPsec server including routing and port forwarding
 
 ## Description
 Access private network from the internet, support port forwarding from private network to outside via cloud.
