@@ -7,6 +7,7 @@ ENV SWAN_VER 4.1
 ENV DEBIAN_FRONTEND noninteractive
 ENV VPN_L2TP_NET "192.168.122.0/24"
 ENV VPN_L2TP_POOL "192.168.122.10-192.168.122.254"
+ENV VPN_L2TP_LOCAL "192.168.122.1"
 RUN apt-get update && apt-get install -y rsyslog iproute2 redir net-tools inetutils-inetd iptables-persistent systemd nodejs
 RUN echo "net.ipv4.ip_forward=1">/etc/sysctl.conf
 RUN echo "net.ipv4.ip_forward=1">/etc/sysctl.conf
