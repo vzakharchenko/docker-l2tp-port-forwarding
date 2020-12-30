@@ -47,10 +47,8 @@ set -e
 printf "${CYAN}installing Docker image${NC}\n"
 git clone https://github.com/vzakharchenko/docker-l2tp-port-forwarding /opt/docker-l2tp-port-forwarding
 cd /opt/docker-l2tp-port-forwarding
-docker stop l2tp-port-forwarding
-docker rm l2tp-port-forwarding
 
 docker build -t l2tp-port-forwarding .
-docker run --name=l2tp-port-forwarding -v /opt/config.json:/opt/config.json --privileged l2tp-port-forwarding
+docker run --name=l2tp-port-forwarding -p 500:500/udp -p 4500:4500/udp -v /opt/config.json:/opt/config.json --privileged l2tp-port-forwarding
 printf "${CYAN}Rebooting${NC}\n"
 #reboot
