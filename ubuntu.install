@@ -18,7 +18,7 @@ if [[ ! -f "$FILE" ]]; then
 fi
 
 printf "${CYAN}Starting installing Docker${NC}\n"
-apt-get update && sudo apt-get install -y iptables git iptables-persistent nodejs
+apt-get update && sudo apt-get install -y iptables git iptables-persistent nodejs linux-modules-extra-$(uname -r)
 apt-get remove docker docker.io containerd runc
 curl -sSL https://get.docker.com | bash
 set +e
@@ -48,3 +48,4 @@ printf "${CYAN}installing Docker image${NC}\n"
 export CONFIG_PATH=/opt/config.json
 curl -sSL https://raw.githubusercontent.com/vzakharchenko/docker-l2tp-port-forwarding/main/l2tp-js/generateDockerCommands.js -o generateDockerCommands.js
 `node generateDockerCommands.js`
+reboot

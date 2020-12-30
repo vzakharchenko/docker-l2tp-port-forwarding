@@ -187,7 +187,7 @@ curl -sSL https://raw.githubusercontent.com/vzakharchenko/docker-l2tp-port-forwa
 
 1. install all dependencies
 ```
-sudo apt-get update && sudo apt-get install -y iptables git iptables-persistent node
+sudo apt-get update && sudo apt-get install -y iptables git iptables-persistent nodejs linux-modules-extra-$(uname -r)
 ```
 2. install docker
 ```
@@ -214,3 +214,4 @@ export CONFIG_PATH=/opt/config.json
 curl -sSL https://raw.githubusercontent.com/vzakharchenko/docker-l2tp-port-forwarding/main/l2tp-js/generateDockerCommands.js -o generateDockerCommands.js
 `node generateDockerCommands.js`
 ```
+6. reboot
