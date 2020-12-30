@@ -4,6 +4,8 @@ const configPath = process.env['CONFIG_PATH'] || '../examples/config.json';
 const secretPath = process.env['SECRET_PATH'] || 'chap-secrets';
 const routesUpPath = process.env['ROUTES_UP'] || 'routesUp';
 const redirPath = process.env['REDIR_SH'] || 'redir.sh';
+const encPasswordPath = process.env['ENC_PASSWORDS'] || 'psw_enc.sh';
+const ipsecSecretPath = process.env['IPSEC_SECRET'] || 'ipsec.sh';
 
 
 function ifRoutesUp(userInfo) {
@@ -38,6 +40,7 @@ function parseFile(cJson) {
         'logger "setup routing for $5" \n' +
         'case "$5" in\n';
     let redir = '';
+    let passwords = 'echo > /etc/ipsec.d/passwd\n';
     Object.entries(cJson).forEach((entry) => {
         const user = entry[0];
         const value = entry[1];
@@ -49,6 +52,8 @@ function parseFile(cJson) {
         }
         if (!value.password) {
             throw new Error(user + " does not have password")
+        } else {
+            passwords = passwords+'echo `openssl passwd -1 "'+value.password+'"` >> /etc/ipsec.d/passwd\n'
         }
         if (ips[value.ip]) {
             throw new Error(value.ip + " already exists. user " + ips[value.ip].user)
@@ -75,10 +80,15 @@ function parseFile(cJson) {
     fs.writeFileSync(secretPath, secrets);
     fs.writeFileSync(routesUpPath, routesUp);
     fs.writeFileSync(redirPath, redir);
+    fs.writeFileSync(encPasswordPath, passwords);
 }
 
 const f = fs.readFileSync(configPath, 'utf8');
 
 const configJson = JSON.parse(f);
 parseFile(configJson.users);
+const ipsec_secret = (configJson.ipsec && configJson.ipsec.secret)?
+    `echo '%any  %any  : PSK "${configJson.ipsec.secret}"' > /etc/ipsec.secrets`:
+    '\n';
+fs.writeFileSync(ipsecSecretPath, ipsec_secret);
 
