@@ -1,0 +1,17 @@
+noccp
+auth
+crtscts
+mtu 1410
+mru 1410
+nodefaultroute
+lock
+noproxyarp
+silent
+modem
+asyncmap 0
+hide-password
+require-mschap-v2
+ms-dns 77.88.8.8
+ms-dns 8.8.8.8
+logfile /var/log/messages
+debug
