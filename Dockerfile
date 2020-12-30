@@ -27,8 +27,8 @@ ENV ROUTES_UP  /etc/ppp/ip-up.d/routes-up
 ENV REDIR_SH  /opt/redir.sh
 ENV ENC_PASSWORDS  /opt/enc_passwords.sh
 ENV IPSEC_SECRET  /opt/ipsecSecret.sh
-EXPOSE 500
-EXPOSE 4500
-EXPOSE 50
-EXPOSE 51
+#EXPOSE 500/udp
+#EXPOSE 4500/udp
+#EXPOSE 50
+#EXPOSE 51
 ENTRYPOINT ["/entrypoint.sh"]

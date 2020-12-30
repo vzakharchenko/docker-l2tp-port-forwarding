@@ -49,6 +49,10 @@ git clone https://github.com/vzakharchenko/docker-l2tp-port-forwarding /opt/dock
 cd /opt/docker-l2tp-port-forwarding
 
 docker build -t l2tp-port-forwarding .
-docker run --name=l2tp-port-forwarding -p 500:500/udp -p 4500:4500/udp -v /opt/config.json:/opt/config.json --privileged l2tp-port-forwarding
-printf "${CYAN}Rebooting${NC}\n"
+```
+export CONFIG_PATH=/opt/config.json
+curl -sSL https://raw.githubusercontent.com/vzakharchenko/docker-l2tp-port-forwarding/main/l2tp-js/generateDockerCommands.js -o generateDockerCommands.js
+`node generateDockerCommands.js`
+```
+#printf "${CYAN}Rebooting${NC}\n"
 #reboot
