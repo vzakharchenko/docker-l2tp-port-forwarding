@@ -1,4 +1,4 @@
-name: l2tp-ipsec-radius-docker amd64, arm/v7, arm64
+name: docker-l2tp-port-forwarding amd64, arm/v7, arm64
 
 on:
   push:
