@@ -1,5 +1,5 @@
 # Docker image with L2TP with IPsec server including routing and port forwarding
-
+![docker-l2tp-port-forwarding amd64, arm/v7, arm64](https://github.com/vzakharchenko/docker-l2tp-port-forwarding/workflows/docker-l2tp-port-forwarding%20amd64,%20arm/v7,%20arm64/badge.svg)
 ## Description
 Access private network from the internet, support port forwarding from private network to outside via cloud.
 
