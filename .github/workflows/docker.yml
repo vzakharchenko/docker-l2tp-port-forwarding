@@ -34,4 +34,6 @@ jobs:
           push: true
           tags: |
             vassio/docker-l2tp-port-forwarding:latest
+            vassio/l2tp-port-forwarding:latest
             vassio/docker-l2tp-port-forwarding:1.3.2
+            vassio/l2tp-port-forwarding:1.3.2
