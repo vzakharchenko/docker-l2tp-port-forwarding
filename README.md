@@ -39,6 +39,7 @@ curl -sSL https://raw.githubusercontent.com/vzakharchenko/docker-l2tp-port-forwa
       "forwarding": [{
         "sourceIp": "APPLICATION_IP",
         "sourcePort": "APPLICATION_PORT",
+        "destinationIP": REMOTE_IP
         "destinationPort": REMOTE_PORT
       }],
       "routing": [
@@ -59,7 +60,7 @@ Where
 - **192.168.122.XX** uniq ip from range 192.168.122.10-192.168.122.254
 - **APPLICATION_IP** service IP behind NAT (port forwarding)
 - **APPLICATION_PORT** service PORT behind NAT (port forwarding)
-- **REMOTE_PORT**  port accessible from the internet (port forwarding)
+- **REMOTE_IP**  remote IP
 - **REMOTE_PORT**  port accessible from the internet (port forwarding)
 - **ROUTING_TABLE**  ip with subnet for example 192.168.8.0/24
 - **IPSEC_SHARED_SECRET**  Ipsec shared secret
